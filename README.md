@@ -28,9 +28,4 @@ Make sure you have the following installed:
 - Flask (`pip install flask`)
 - Fast API
 
-## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/hospital-enquiry-system.git
-   cd hospital-enquiry-system
