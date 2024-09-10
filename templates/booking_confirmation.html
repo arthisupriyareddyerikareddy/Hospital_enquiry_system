@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Booking Confirmation</h2>
+    <p>Thank you, {{ patient_name }}! Your appointment with {{ doctor.name }} ({{ doctor.specialty }}) has been confirmed.</p>
+
+    <h3>Patient Information:</h3>
+    <p><strong>Full Name:</strong> {{ patient_name }}</p>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p><strong>Gender:</strong> {{ gender }}</p>
+    <p><strong>Contact Number:</strong> {{ contact }}</p>
+    <p><strong>Preferred Appointment Date & Time:</strong> {{ appointment_date }}</p>
+
+    <h3>Doctor Information:</h3>
+    <p><strong>Price:</strong> {{ doctor.price }}</p>
+    <p><strong>Availability:</strong> {{ doctor.availability }}</p>
+    <p><strong>Location:</strong> {{ doctor.location }}</p>
+    <p><strong>Contact:</strong> {{ doctor.contact }}</p>
+
+    {% if notes %}
+        <h3>Special Notes:</h3>
+        <p>{{ notes }}</p>
+    {% endif %}
+
+    <p>We will contact you at {{ contact }} for further details.</p>
+</body>
+</html>

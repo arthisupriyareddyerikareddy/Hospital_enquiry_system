@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Doctor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Book an Appointment with {{ doctor.name }}</h2>
+    <p>Specialty: {{ doctor.specialty }}</p>
+    <p>Price: {{ doctor.price }}</p>
+    <p>Availability: {{ doctor.availability }}</p>
+
+    <form method="POST">
+        <!-- Patient Name -->
+        <label for="patient_name">Patient's Full Name:</label><br>
+        <input type="text" name="patient_name" id="patient_name" placeholder="Your Full Name" required><br><br>
+
+        <!-- Patient Age -->
+        <label for="age">Patient's Age:</label><br>
+        <input type="number" name="age" id="age" placeholder="Age" min="0" max="120" required><br><br>
+
+        <!-- Patient Gender -->
+        <label for="gender">Patient's Gender:</label><br>
+        <select name="gender" id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <!-- Contact Info -->
+        <label for="contact">Contact Number:</label><br>
+        <input type="tel" name="contact" id="contact" placeholder="Your Contact Number" required><br><br>
+
+        <!-- Preferred Appointment Date & Time -->
+        <label for="appointment_date">Preferred Appointment Date & Time:</label><br>
+        <input type="datetime-local" name="appointment_date" id="appointment_date" required><br><br>
+
+        <!-- Special Notes -->
+        <label for="notes">Any Special Notes:</label><br>
+        <textarea name="notes" id="notes" rows="4" placeholder="Mention any symptoms or special requirements"></textarea><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Book Now</button>
+    </form>
+</body>
+</html>

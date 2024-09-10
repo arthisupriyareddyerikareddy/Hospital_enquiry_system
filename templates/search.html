@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Hospitals</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Search Hospitals</h2>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Enter hospital name" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if hospitals %}
+        <h3>Search Results for "{{ query }}"</h3>
+        <ul>
+            {% for hospital in hospitals %}
+                <li>
+                    <h4>{{ hospital.name }} - {{ hospital.address }}</h4>
+                    <ul>
+                        {% for doctor in hospital.doctors %}
+                            <li>
+                                <strong>{{ doctor.name }} - {{ doctor.specialty }}</strong><br>
+                                Price: {{ doctor.price }}<br>
+                                Location: {{ doctor.location }}<br>
+                                Availability: {{ doctor.availability }}<br>
+                                Contact: {{ doctor.contact }}<br>
+                                <a href="{{ url_for('book_doctor', hospital_name=hospital.name, doctor_name=doctor.name) }}">Book Now</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
